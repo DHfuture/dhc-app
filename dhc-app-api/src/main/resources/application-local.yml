@@ -1,0 +1,8 @@
+spring:
+  profiles:
+    active: local
+  datasource:
+    driver-class-name: "com.mysql.cj.jdbc.Driver"
+    url: "jdbc:mysql://47.94.142.208:3307/d_example2?useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull"
+    username: "root"
+    password: "123456"
