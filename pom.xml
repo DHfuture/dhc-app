@@ -13,11 +13,6 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <modules>
-        <module>dhc-app-api</module>
-        <module>dhc-app-api-logic</module>
-    </modules>
-
     <profiles>
         <profile>
             <id>local</id>
@@ -43,5 +38,13 @@
     <properties>
         <java.version>17</java.version>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>cn.gjing</groupId>
+            <artifactId>tools-auth</artifactId>
+            <version>1.0.1</version>
+        </dependency>
+    </dependencies>
 
 </project>

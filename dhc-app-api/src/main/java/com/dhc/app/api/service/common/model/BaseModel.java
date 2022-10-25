@@ -1,4 +1,4 @@
-package com.dhc.app.api.logic.common.model;
+package com.dhc.app.api.service.common.model;
 
 import lombok.Getter;
 import lombok.Setter;

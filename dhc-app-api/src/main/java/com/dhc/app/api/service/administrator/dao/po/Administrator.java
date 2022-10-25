@@ -1,15 +1,11 @@
-package com.dhc.app.api.logic.administrator.dao.administrator.po;
+package com.dhc.app.api.service.administrator.dao.po;
 
-import com.dhc.app.api.logic.common.model.BaseModel;
-import lombok.AccessLevel;
+import com.dhc.app.api.service.common.model.BaseModel;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
-
-import javax.validation.constraints.Size;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 @Data
 @Entity

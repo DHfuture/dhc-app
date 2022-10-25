@@ -1,6 +1,6 @@
-package com.dhc.app.api.logic.administrator.dao.administrator;
+package com.dhc.app.api.service.administrator.dao;
 
-import com.dhc.app.api.logic.administrator.dao.administrator.po.Administrator;
+import com.dhc.app.api.service.administrator.dao.po.Administrator;
 import org.springframework.data.repository.CrudRepository;
 import org.apache.ibatis.annotations.Mapper;
 
