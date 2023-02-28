@@ -2,12 +2,14 @@ package com.dhc.app.api.service.administrator.dao.po;
 
 import com.dhc.app.api.service.common.model.BaseModel;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
 @Data
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "t_administrator")
 public class Administrator extends BaseModel {

@@ -1,6 +1,5 @@
 package com.dhc.app.api.response;
 
-import com.dhc.app.api.response.WebResponseException;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /**
