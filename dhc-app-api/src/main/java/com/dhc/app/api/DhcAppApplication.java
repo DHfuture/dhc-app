@@ -2,21 +2,19 @@ package com.dhc.app.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication(
         scanBasePackages = {
                 "com.dhc.app.api",
-        },
-        exclude = {DataSourceAutoConfiguration.class}
+                "com.dhc.app.api.*.*.dao.po",
+        }
+        //不允许自动注入数据源，该项会导致jpa相关注解扫描实体类或Repository失败导致报错
+//         exclude = {DataSourceAutoConfiguration.class}
 )
-//swagger文档
-@EnableSwagger2
 //服务注册与发现，consul使用的
 //@EnableDiscoveryClient
-//事务相关，数据库service的实现方法上，加 @Transactional 就可以实现数据库事务了
+//事务相关，数据库service的实现方法上，加 @Transactional 就可以实现数据库事务，加到这里可以对全局的事务生效
 @EnableTransactionManagement
 //@MapperScan(basePackages = "com.dhc.app.api.service.*.dao", annotationClass = Mapper.class)
 public class DhcAppApplication {

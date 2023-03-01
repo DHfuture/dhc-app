@@ -1,9 +1,11 @@
 spring:
-  profiles:
-    active: local
   datasource:
+    #  mysql驱动，根据使用的数据库版本确定
     driver-class-name: "com.mysql.cj.jdbc.Driver"
     url: "jdbc:mysql://localhost:3306/dhc?useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull"
-#    url: "jdbc:mysql://localhost:3306"
     username: "root"
     password: "hongchen"
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update

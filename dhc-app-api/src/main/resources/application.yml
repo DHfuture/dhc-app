@@ -2,6 +2,10 @@ server:
     port: 12007
 
 spring:
+    profiles:
+        active: local
+    application:
+        name: dhc-app
     mvc:
         pathmatch:
             matching-strategy: ant_path_matcher

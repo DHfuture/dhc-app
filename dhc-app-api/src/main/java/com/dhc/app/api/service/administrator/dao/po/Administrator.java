@@ -1,15 +1,11 @@
 package com.dhc.app.api.service.administrator.dao.po;
 
 import com.dhc.app.api.service.common.model.BaseModel;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
-@Data
-@EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "t_administrator")
 public class Administrator extends BaseModel {
@@ -17,19 +13,39 @@ public class Administrator extends BaseModel {
     /**
      * 登陆名
      */
-    @Size(min = 5, max = 30, message = "登录名长度5-30")
     private String longinName;
 
     /**
      * 密码
      */
-    @Size(min = 7, max = 30, message = "密码长度7-30")
     private String password;
 
     /**
      * 昵称
      */
-    @Size(min = 1, max = 20, message = "昵称长度1-20")
     private String nickname;
 
+    public String getLonginName() {
+        return longinName;
+    }
+
+    public void setLonginName(String longinName) {
+        this.longinName = longinName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
 }

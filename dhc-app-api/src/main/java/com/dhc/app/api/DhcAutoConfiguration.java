@@ -1,27 +1,20 @@
 package com.dhc.app.api;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 /**
  * @Author donghongchen
  * @create 2022/10/20 14:37
  * @Description:
  */
+//表明这是一个配置类
 @Configuration
+//jpa扫描repository注入目录
+@EnableJpaRepositories
+//@EnableJpaRepositories(basePackages = "com.dhc.app.api.service.administrator.dao")
+//扫描JPA实体类
+//@EntityScan(basePackages = {"com.dhc.app.api.service.administrator.dao.po"})
 public class DhcAutoConfiguration {
-
-    @Bean
-    SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.authorizeRequests()
-                .antMatchers("/test/**")
-//                .hasAnyRole("user", "admin")
-//                .antMatchers("/**")
-                .authenticated();
-        //省略HttpSecurity的配置
-        return httpSecurity.build();
-    }
 
 }
