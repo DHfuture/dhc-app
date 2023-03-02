@@ -7,4 +7,8 @@ public interface AdministratorUpdateService {
 
     Administrator create(AdministratorRequestDTO.Create requestDTO);
 
+    void update(Long id, AdministratorRequestDTO.Update requestDTO);
+
+    void delete(Long id);
+
 }

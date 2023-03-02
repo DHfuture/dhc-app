@@ -13,6 +13,25 @@
     <version>1.0-SNAPSHOT</version>
     <description>dhc-app-api</description>
 
+    <profiles>
+        <profile><!-- 本地环境 -->
+            <id>local</id>
+            <properties>
+                <profiles.active>local</profiles.active>
+            </properties>
+            <activation>
+                <!--默认选项-->
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile><!-- 测试环境 -->
+            <id>dev</id>
+            <properties>
+                <profiles.active>dev</profiles.active>
+            </properties>
+        </profile>
+    </profiles>
+
     <properties>
         <java.version>17</java.version>
     </properties>
@@ -100,18 +119,19 @@
             </plugin>
         </plugins>
 
-<!--        <resources>-->
-<!--            &lt;!&ndash;激活配置文件&ndash;&gt;-->
-<!--            <resource>-->
-<!--                <directory>src/main/resources</directory>-->
-<!--                <includes>-->
+        <resources>
+            <!--激活配置文件-->
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
 <!--                    <include>application-${profileActive}.yml</include>-->
-<!--                    <include>application.yml</include>-->
-<!--                    <include>**/*.xml</include>-->
-<!--                </includes>-->
-<!--                <filtering>true</filtering>-->
-<!--            </resource>-->
-<!--        </resources>-->
+                    <include>application.yml</include>
+                    <include>**/*.xml</include>
+                    <include>**/*.yml</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
     </build>
 
 </project>

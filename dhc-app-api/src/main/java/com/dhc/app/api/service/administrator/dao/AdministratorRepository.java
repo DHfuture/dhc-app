@@ -2,9 +2,8 @@ package com.dhc.app.api.service.administrator.dao;
 
 import com.dhc.app.api.service.administrator.dao.po.Administrator;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
 
+//使用@EnableJpaRepositories后，就不需要@Repository
 //@Repository
-public interface AdministratorRepository extends CrudRepository<Administrator, Long> {
+public interface AdministratorRepository extends JpaRepository<Administrator, Long> {
 }

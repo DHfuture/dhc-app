@@ -3,6 +3,7 @@ package com.dhc.app.api.service.administrator.service.model.request;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 public interface AdministratorRequestDTO {
@@ -47,6 +48,10 @@ public interface AdministratorRequestDTO {
     @Getter
     @Setter
     public class Update implements Common {
+
+        @NotNull
+        private Long id;
+
         /**
          * 登陆名
          */
