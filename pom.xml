@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.2</version>
+        <version>3.0.6</version>
     </parent>
 
     <groupId>com.dhc</groupId>
@@ -39,12 +39,37 @@
         <java.version>17</java.version>
     </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>cn.gjing</groupId>
-            <artifactId>tools-auth</artifactId>
-            <version>1.0.1</version>
-        </dependency>
-    </dependencies>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>cn.gjing</groupId>
+                <artifactId>tools-auth</artifactId>
+                <version>1.0.1</version>
+            </dependency>
+
+<!--            <dependency>-->
+<!--                <groupId>io.springfox</groupId>-->
+<!--                <artifactId>springfox-boot-starter</artifactId>-->
+<!--                <version>3.0.0</version>-->
+<!--            </dependency>-->
+
+
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+                <version>2.0.2</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-starter-webmvc-api</artifactId>
+                <version>2.0.2</version>
+            </dependency>
+
+        </dependencies>
+
+    </dependencyManagement>
+
+
 
 </project>

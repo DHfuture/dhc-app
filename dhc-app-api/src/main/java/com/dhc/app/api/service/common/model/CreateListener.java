@@ -1,6 +1,7 @@
 package com.dhc.app.api.service.common.model;
 
-import javax.persistence.PrePersist;
+import jakarta.persistence.PrePersist;
+
 import java.util.Date;
 
 public class CreateListener {

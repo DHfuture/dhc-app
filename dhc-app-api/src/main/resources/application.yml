@@ -6,6 +6,11 @@ spring:
         active: '@profiles.active@'
     application:
         name: dhc-app
-    mvc:
-        pathmatch:
-            matching-strategy: ant_path_matcher
+#    mvc:
+#        pathmatch:
+#            matching-strategy: ant_path_matcher
+    security:
+        user:
+            name: user
+            roles: admin
+            password: 123456

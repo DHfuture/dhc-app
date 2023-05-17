@@ -1,6 +1,7 @@
 package com.dhc.app.api.service.common.model;
 
-import javax.persistence.PreUpdate;
+import jakarta.persistence.PreUpdate;
+
 import java.util.Date;
 
 /**
@@ -14,6 +15,7 @@ public class UpdateListener {
     @PreUpdate
     void preUpdate(BaseModel model) {
         Date now = new Date();
+        model.setCreated(null);
         model.setModified(now);
     }
 

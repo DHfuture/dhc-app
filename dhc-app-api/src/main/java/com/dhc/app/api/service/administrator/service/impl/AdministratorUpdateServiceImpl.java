@@ -4,10 +4,11 @@ import com.dhc.app.api.service.administrator.dao.AdministratorRepository;
 import com.dhc.app.api.service.administrator.dao.po.Administrator;
 import com.dhc.app.api.service.administrator.service.AdministratorUpdateService;
 import com.dhc.app.api.service.administrator.service.model.request.AdministratorRequestDTO;
+import com.dhc.app.api.utils.AdministratorPasswordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 
 @Transactional
 @Service
@@ -15,6 +16,9 @@ public class AdministratorUpdateServiceImpl implements AdministratorUpdateServic
 
     @Autowired
     private AdministratorRepository administratorRepository;
+
+    @Autowired
+    private AdministratorPasswordEncoder administratorPasswordEncoder;
 
     @Override
     public Administrator create(AdministratorRequestDTO.Create requestDTO) {
@@ -48,21 +52,25 @@ public class AdministratorUpdateServiceImpl implements AdministratorUpdateServic
 
     private Administrator mapToModel(AdministratorRequestDTO.Common requestDTO) {
         Administrator model = new Administrator();
-        model.setLonginName(requestDTO.getLonginName());
-        model.setPassword(requestDTO.getPassword());
+        model.setLoginName(requestDTO.getLoginName());
+        model.setPassword(administratorPasswordEncoder.encode(requestDTO.getPassword()));
         model.setNickname(requestDTO.getNickname());
+        model.setAuthority(requestDTO.getAuthority());
         return model;
     }
 
     private void setUpdateModel(Administrator model, AdministratorRequestDTO.Update requestDTO) {
-        if (requestDTO.getLonginName() != null) {
-            model.setLonginName(requestDTO.getLonginName());
+        if (requestDTO.getLoginName() != null) {
+            model.setLoginName(requestDTO.getLoginName());
         }
         if (requestDTO.getPassword() != null) {
-            model.setPassword(requestDTO.getPassword());
+            model.setPassword(administratorPasswordEncoder.encode(requestDTO.getPassword()));
         }
         if (requestDTO.getNickname() != null) {
             model.setNickname(requestDTO.getNickname());
+        }
+        if (requestDTO.getAuthority() != null) {
+            model.setAuthority(requestDTO.getAuthority());
         }
     }
 

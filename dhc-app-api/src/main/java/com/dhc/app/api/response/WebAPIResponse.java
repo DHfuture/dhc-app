@@ -38,7 +38,7 @@ public class WebAPIResponse<T>{
     }
 
     public static <T> WebAPIResponse<T> fail(int code, T data) {
-        return new WebAPIResponse<>(false, code, "未知错误一场", data);
+        return new WebAPIResponse<>(false, code, "未知错误", data);
     }
 
     public static <T> WebAPIResponse<T> fail(int code, String message, T data) {

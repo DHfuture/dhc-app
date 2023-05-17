@@ -1,11 +1,12 @@
 package com.dhc.app.api.service.common.model;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+
 import java.util.Date;
 
 @MappedSuperclass
 @EntityListeners({CreateListener.class, UpdateListener.class})
-public class BaseModel {
+public abstract class BaseModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
