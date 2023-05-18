@@ -1,11 +1,30 @@
 package com.dhc.app.api.service.administrator.dao.po;
 
 import com.dhc.app.api.service.common.model.BaseModel;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
-@Entity
-@Table(name = "t_administrator")
+//@Data 自动生成常见的类方法，如 getter、setter、equals()、hashCode() 和 toString() 等
+@Data
+//@EqualsAndHashCode 用于在生成 equals() 和 hashCode() 方法时考虑父类的字段
+//callSuper = true 生成的 equals() 和 hashCode() 方法将不考虑父类的字段
+@EqualsAndHashCode(callSuper = true)
+@Entity(name = "t_administrator")
+@Table(
+        //和@Entity中的用法一样
+        // name = "t_administrator",
+
+        //唯一索引
+        uniqueConstraints = {
+                @UniqueConstraint(name = "loginName", columnNames = {"loginName"}),
+        },
+
+        //普通索引
+        indexes = {
+                @Index(name = "created", columnList = "created ASC, modified DESC", unique = false),
+        }
+)
 public class Administrator extends BaseModel {
 
     /**
@@ -16,6 +35,7 @@ public class Administrator extends BaseModel {
     /**
      * 密码
      */
+    @Column(length = 533, columnDefinition = "TEXT")
     private String password;
 
     /**
@@ -28,35 +48,4 @@ public class Administrator extends BaseModel {
      */
     private String authority;
 
-    public String getLoginName() {
-        return loginName;
-    }
-
-    public void setLoginName(String loginName) {
-        this.loginName = loginName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-
-    public String getAuthority() {
-        return authority;
-    }
-
-    public void setAuthority(String authority) {
-        this.authority = authority;
-    }
 }

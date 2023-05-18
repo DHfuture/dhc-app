@@ -2,6 +2,8 @@ package com.dhc.app.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -10,9 +12,14 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
         scanBasePackages = {
                 "com.dhc.app.api",
                 "com.dhc.app.api.*.*.dao.po",
+        },
+        //排除自动注入项
+        exclude = {
+                //不注入该项会导致jpa相关注解扫描实体类或Repository失败导致报错
+//                DataSourceAutoConfiguration.class,
+                // TODO: 2023/5/17 暂时先不进行springsecurity校验 
+                SecurityAutoConfiguration.class,
         }
-        //不允许自动注入数据源，该项会导致jpa相关注解扫描实体类或Repository失败导致报错
-//         exclude = {DataSourceAutoConfiguration.class}
 )
 //服务注册与发现，consul使用的
 //@EnableDiscoveryClient
