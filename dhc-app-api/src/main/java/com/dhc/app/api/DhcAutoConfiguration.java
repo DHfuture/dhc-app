@@ -5,6 +5,8 @@ import io.swagger.v3.oas.models.info.Info;
 import org.springdoc.core.models.GroupedOpenApi;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
  * @Author donghongchen
@@ -18,7 +20,9 @@ import org.springframework.context.annotation.Configuration;
 //@EntityScan(basePackages = {"com.dhc.app.api.service.administrator.dao.po"})
 public class DhcAutoConfiguration {
 
-    //swagger3接口文档
+    /**
+     * swagger3接口文档
+     */
     @Bean
     public OpenAPI apiInfo() {
         return new OpenAPI().info(new Info().title("dhc接口文档").version("1.0.0"));

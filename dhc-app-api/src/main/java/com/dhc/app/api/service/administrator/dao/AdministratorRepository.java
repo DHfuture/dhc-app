@@ -6,4 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 //使用@EnableJpaRepositories后，就不需要@Repository
 //@Repository
 public interface AdministratorRepository extends JpaRepository<Administrator, Long> {
+
+    Administrator findByLoginName(String loginName);
+
 }

@@ -1,14 +1,15 @@
-package com.dhc.app.api.response;
+package com.dhc.app.api.utils.response;
 
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
-public class WebAbstractResponseAdapter implements ResponseBodyAdvice<Object> {
+public abstract class WebAbstractResponse implements ResponseBodyAdvice<Object> {
 
     /**
      * 判断是否执行beforeBodyWrite
@@ -44,9 +45,18 @@ public class WebAbstractResponseAdapter implements ResponseBodyAdvice<Object> {
                                   Class<? extends HttpMessageConverter<?>> selectedConverterType,
                                   ServerHttpRequest request,
                                   ServerHttpResponse response) {
-        if (body instanceof WebAPIResponse) {
-            return body;
+//        if (body instanceof WebAPIResponse) {
+//            return body;
+//        }
+//        return WebAPIResponse.success(body);
+
+        if (!(body instanceof ResponseEntity) &&
+                !(body instanceof WebAPIResponse)) {
+            return WebAPIResponse.success(body);
         }
-        return WebAPIResponse.success(body);
+
+        return body;
+
+
     }
 }

@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
                 //不注入该项会导致jpa相关注解扫描实体类或Repository失败导致报错
 //                DataSourceAutoConfiguration.class,
                 // TODO: 2023/5/17 暂时先不进行springsecurity校验 
-                SecurityAutoConfiguration.class,
+//                SecurityAutoConfiguration.class,
         }
 )
 //服务注册与发现，consul使用的

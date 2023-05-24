@@ -65,4 +65,15 @@ public interface AdministratorRequestDTO {
         private String authority;
     }
 
+    @Getter
+    @Setter
+    @Schema(name = "AdministratorRequestDTO_Login")
+    class Login {
+        @Schema(title = "登录名")
+        @Size(min = 1, max = 20, message = "昵称长度1-20")
+        private String loginName;
+
+        @Schema(title = "密码")
+        private String password;
+    }
 }

@@ -1,5 +1,6 @@
 package com.dhc.app.api.service.administrator.service;
 
+import com.dhc.app.api.action.administrator.model.response.AdministratorAccessTokenVO;
 import com.dhc.app.api.service.administrator.dao.po.Administrator;
 import com.dhc.app.api.service.administrator.service.model.request.AdministratorRequestDTO;
 
