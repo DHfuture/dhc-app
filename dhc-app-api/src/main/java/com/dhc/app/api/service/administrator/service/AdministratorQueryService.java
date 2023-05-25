@@ -1,8 +1,10 @@
 package com.dhc.app.api.service.administrator.service;
 
 import com.dhc.app.api.action.administrator.model.response.AdministratorAccessTokenVO;
+import com.dhc.app.api.service.administrator.dao.AdministratorRepository;
 import com.dhc.app.api.service.administrator.dao.po.Administrator;
 import com.dhc.app.api.service.administrator.service.model.request.AdministratorRequestDTO;
+import com.dhc.app.api.utils.service.impl.BaseServiceImpl;
 
 import javax.validation.constraints.NotNull;
 import java.util.Optional;

@@ -18,6 +18,9 @@ public class CreateListener {
         if (model.getEnable() == null) {
             model.setEnable(true);
         }
+        if (model.getIsDeleted() == null) {
+            model.setIsDeleted(false);
+        }
     }
 
 }

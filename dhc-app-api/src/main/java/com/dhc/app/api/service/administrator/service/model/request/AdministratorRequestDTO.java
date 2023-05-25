@@ -1,5 +1,6 @@
 package com.dhc.app.api.service.administrator.service.model.request;
 
+import com.dhc.app.api.service.administrator.constants.AdministratorRole;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,7 +18,7 @@ public interface AdministratorRequestDTO {
 
         String getNickname();
 
-        String getAuthority();
+        AdministratorRole getAuthority();
     }
 
     @Getter
@@ -37,8 +38,8 @@ public interface AdministratorRequestDTO {
         @Size(min = 1, max = 20, message = "昵称长度1-20")
         private String nickname;
 
-        @Schema(title = "权限", requiredMode = Schema.RequiredMode.REQUIRED)
-        private String authority;
+        @Schema(title = AdministratorRole.DOC, requiredMode = Schema.RequiredMode.REQUIRED)
+        private AdministratorRole authority;
     }
 
     @Getter
@@ -61,8 +62,8 @@ public interface AdministratorRequestDTO {
         @Size(min = 1, max = 20, message = "昵称长度1-20")
         private String nickname;
 
-        @Schema(title = "权限", requiredMode = Schema.RequiredMode.AUTO)
-        private String authority;
+        @Schema(title = AdministratorRole.DOC, requiredMode = Schema.RequiredMode.AUTO)
+        private AdministratorRole authority;
     }
 
     @Getter

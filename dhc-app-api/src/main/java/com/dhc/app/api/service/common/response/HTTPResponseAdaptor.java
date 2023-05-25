@@ -1,4 +1,4 @@
-package com.dhc.app.api.utils.response;
+package com.dhc.app.api.service.common.response;
 
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 

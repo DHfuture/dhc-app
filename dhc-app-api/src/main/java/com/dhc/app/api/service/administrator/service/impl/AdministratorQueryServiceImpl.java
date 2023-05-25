@@ -1,13 +1,10 @@
 package com.dhc.app.api.service.administrator.service.impl;
 
-import com.dhc.app.api.service.administrator.LoginAdministrator;
 import com.dhc.app.api.service.administrator.dao.AdministratorRepository;
 import com.dhc.app.api.service.administrator.dao.po.Administrator;
 import com.dhc.app.api.service.administrator.service.AdministratorQueryService;
+import com.dhc.app.api.utils.service.impl.BaseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import javax.validation.constraints.NotNull;
@@ -19,7 +16,7 @@ import java.util.Optional;
  * @Description:
  */
 @Service
-public class AdministratorQueryServiceImpl implements AdministratorQueryService {
+public class AdministratorQueryServiceImpl extends BaseServiceImpl<AdministratorRepository, Administrator, Long> implements AdministratorQueryService {
 
     @Autowired
     private AdministratorRepository administratorRepository;

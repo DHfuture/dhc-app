@@ -1,5 +1,6 @@
 package com.dhc.app.api.service.administrator.dao.po;
 
+import com.dhc.app.api.service.administrator.constants.AdministratorRole;
 import com.dhc.app.api.service.common.model.BaseModel;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -46,6 +47,7 @@ public class Administrator extends BaseModel {
     /**
      * 权限
      */
-    private String authority;
+    @Enumerated(EnumType.STRING)
+    private AdministratorRole authority;
 
 }

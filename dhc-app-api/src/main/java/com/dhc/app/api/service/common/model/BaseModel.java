@@ -22,4 +22,9 @@ public abstract class BaseModel {
 
     private String ip;
 
+    /**
+     * 逻辑删除
+     */
+    private Boolean isDeleted;
+
 }

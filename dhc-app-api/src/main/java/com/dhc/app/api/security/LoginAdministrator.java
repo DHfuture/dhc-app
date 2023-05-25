@@ -1,4 +1,4 @@
-package com.dhc.app.api.service.administrator;
+package com.dhc.app.api.security;
 
 import com.dhc.app.api.service.administrator.dao.po.Administrator;
 import lombok.AllArgsConstructor;
@@ -38,23 +38,39 @@ public class LoginAdministrator implements UserDetails {
         return administrator.getLoginName();
     }
 
+    /**
+     * 用户是否过期
+     * @return
+     */
     @Override
     public boolean isAccountNonExpired() {
         return true;
     }
 
+    /**
+     * 用户是否锁定
+     * @return
+     */
     @Override
     public boolean isAccountNonLocked() {
         return true;
     }
 
+    /**
+     * 凭证是否过期
+     * @return
+     */
     @Override
     public boolean isCredentialsNonExpired() {
         return true;
     }
 
+    /**
+     * 用户是否启动
+     * @return
+     */
     @Override
     public boolean isEnabled() {
-        return true;
+        return administrator.getEnable();
     }
 }
