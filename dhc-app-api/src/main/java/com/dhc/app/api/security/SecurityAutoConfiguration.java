@@ -4,7 +4,6 @@ import com.dhc.app.api.security.jwt.JwtAuthenticationTokenFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.DependsOn;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -24,7 +23,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 //当SecurityAutoConfiguration在启动类上被手动排除调时，不加的话 HttpSecurity http 就会报错
 //@EnableWebSecurity
 @RequiredArgsConstructor
-public class DhcSecurityAutoConfiguration {
+public class SecurityAutoConfiguration {
 
     private final JwtAuthenticationTokenFilter jwtAuthenticationTokenFilter;
 

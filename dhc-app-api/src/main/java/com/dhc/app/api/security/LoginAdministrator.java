@@ -71,6 +71,6 @@ public class LoginAdministrator implements UserDetails {
      */
     @Override
     public boolean isEnabled() {
-        return administrator.getEnable();
+        return true;
     }
 }
