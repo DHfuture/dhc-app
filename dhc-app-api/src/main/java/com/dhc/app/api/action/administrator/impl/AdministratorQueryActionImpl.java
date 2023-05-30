@@ -45,7 +45,7 @@ public class AdministratorQueryActionImpl implements AdministratorQueryAction {
 
         String token = JwtUtil.generateToken(administrator.getId(), administrator.getLoginName());
         // 将token存储
-        redisCache.setCacheObject("token:", token);
+        redisCache.setCacheObject("token:" + administrator.getId(), token);
 
         AdministratorAccessTokenVO tokenVO = new AdministratorAccessTokenVO();
         tokenVO.setAccessToken(token);

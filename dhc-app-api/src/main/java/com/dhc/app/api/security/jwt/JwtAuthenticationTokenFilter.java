@@ -10,7 +10,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
@@ -24,6 +23,7 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 
     private final UserDetailsService userDetailsService;
 
+
     /**
      * token认证，当前端携带了有效token时自动放行
      *
@@ -36,8 +36,8 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
     @Override
 //    @Transactional
     protected void doFilterInternal(HttpServletRequest request,
-                                 HttpServletResponse response,
-                                 FilterChain filterChain) throws ServletException, IOException {
+                                    HttpServletResponse response,
+                                    FilterChain filterChain) throws ServletException, IOException {
         String token = request.getHeader(AUTHORIZATION);
         if (token == null) {
             filterChain.doFilter(request, response);

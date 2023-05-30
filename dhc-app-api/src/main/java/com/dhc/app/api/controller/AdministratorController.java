@@ -10,6 +10,7 @@ import com.dhc.app.api.service.common.context.ApiContext;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -59,6 +60,7 @@ public class AdministratorController {
 
     @Operation(summary = "管理员_登录")
     @PostMapping("/login")
+//    @PreAuthorize("hasPermission('aaa')")
     public Object login(@Valid @RequestBody AdministratorRequestDTO.Login requestDTO) {
         return administratorQueryAction.login(requestDTO);
     }
